@@ -10,6 +10,4 @@ rest:
 db:
   host: localhost
   port: 12006
-  username: root
-  password: riotdev
   database: sample

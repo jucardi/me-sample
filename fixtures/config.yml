@@ -28,3 +28,6 @@ mongo:
   port: 27017
   # database: Indicates the database name
   database: sample
+
+service:
+  min_password_length: 20

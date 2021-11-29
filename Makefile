@@ -11,8 +11,8 @@ APIS         = $(wildcard api/*/.)
 BUILD_TAG   ?= $(SERVICE_NAME)
 
 run: build-local
-#	@echo starting database container
-#	@docker-compose up -d db
+	@echo starting database container
+	@docker-compose up -d db
 	@./bin/$(COMMAND_NAME)
 	@if [ -f ./local.yml ]; then ./bin/$(COMMAND_NAME) -c ./local.yml; else ./bin/$(COMMAND_NAME); fi
 
