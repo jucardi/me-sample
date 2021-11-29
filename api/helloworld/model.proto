@@ -1,0 +1,20 @@
+syntax = "proto3";
+package helloworld;
+
+option go_package = "./;helloworld";
+
+// swagger:model
+message Message {
+    // ID is the record id in the database
+    // @inject_tag: bson:"_id"
+    string ID = 1;
+
+    // Name is the message name
+    // @inject_tag: bson:"name"
+    // @inject_tag: custom_tag:"custom_value"
+    string name = 2;
+
+    // Message is the message string
+    // @inject_tag: bson:"message"
+    string message = 3;
+}

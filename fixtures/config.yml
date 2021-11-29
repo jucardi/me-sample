@@ -1,0 +1,30 @@
+app_name: ms-sample
+
+# rest: Contains the configuration for the REST Api
+rest:
+  # http_port: Indicates the port where the API will be listening to
+  http_port: 8080
+
+  # context_path: Adds a context path to all registered routes
+  context_path: bml
+
+  response:
+    mode: json
+    error_bodies: false
+
+  # reporting: Contains HTTP reporting configuration for logging purposes
+  reporting:
+    # min_status: Indicates the minimum HTTP Status to log an HTTP Request dump into the net/router logger
+    min_status: 400
+
+    # body: Indicates whether the HTTP request body should be dumped into the logger
+    body: true
+
+# mongo: Contains the database configuration used by the service
+mongo:
+  # host: Indicates the host where the database is located
+  host: localhost
+  # port: Indicates the port where the database service is listening to
+  port: 27017
+  # database: Indicates the database name
+  database: sample

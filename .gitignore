@@ -1,0 +1,17 @@
+# gitignore for core-msauth
+
+# system files
+*.DS_Store*
+
+# ide
+.idea
+.vscode
+*.ipr
+*.iws
+
+/bin
+/tmp
+target
+test-artifacts
+/core-ms-config
+/local.yml

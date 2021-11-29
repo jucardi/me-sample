@@ -1,0 +1,15 @@
+app_name: ms-sample
+
+rest:
+  http_port: 8080
+  context_path: bml
+  reporting:
+    min_status: 400
+    body: true
+
+db:
+  host: localhost
+  port: 12006
+  username: root
+  password: riotdev
+  database: sample
