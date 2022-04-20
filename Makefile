@@ -1,12 +1,13 @@
 GO_FMT       = gofmt -s -w -l .
 BUILD_TIME   = $(shell date -u +%FT%T)
 PKGROOT      = $(shell go list -e 2>/dev/null || true)
-SERVICE_NAME = ms-sample
-COMMAND_NAME = ms-sample
+COMMONS_ROOT = github.com/jucardi/go-titan
+SERVICE_NAME = sample-ms
+COMMAND_NAME = sample-ms
 
 VERSION     ?= $(shell date -u +%y.%m.%d.%H%M%S)
 IMAGE_TAG   ?= $(VERSION)
-IMAGE_NAME   = registry.bidmylisting.io/service/$(SERVICE_NAME):$(IMAGE_TAG)
+IMAGE_NAME   = registry.url.here/$(SERVICE_NAME):$(IMAGE_TAG)
 APIS         = $(wildcard api/*/.)
 BUILD_TAG   ?= $(SERVICE_NAME)
 
@@ -44,7 +45,7 @@ protoc: protoc-dep protoc-item
 
 protoc-dep:
 	@echo "getting protobuf dependencies..."
-	@go get google.golang.org/protobuf/protoc-gen-go
+	@go get google.golang.org/protobuf
 	@go install github.com/jucardi/protoc-go-inject-tag@latest 2>/dev/null 1>/dev/null
 
 protoc-item: $(APIS)
@@ -69,7 +70,7 @@ build-local:
 build-linux:
 	@mkdir bin 2>/dev/null || true
 	@echo "building linux binary..."
-	@CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -mod=vendor -ldflags "-X $(COMMONS_ROOT)/info.Version=$(VERSION) -X $(COMMONS_ROOT)/info.Built=$(BUILD_TIME)" -o bin/$(COMMAND_NAME)-linux ./cmd/server
+	@CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -mod=vendor -ldflags "-X $(COMMONS_ROOT)/info.Version=$(VERSION) -X $(COMMONS_ROOT)/info.Built=$(BUILD_TIME)" -o bin/$(COMMAND_NAME)-linux ./cmd/service
 
 docker-cleanup:
 	@VERSION=$(VERSION) docker-compose down 1>/dev/null
@@ -81,6 +82,7 @@ docker-run: docker-cleanup build-linux
 
 docker-build: docker-cleanup
 	@VERSION=$(VERSION) docker-compose -p $(BUILD_TAG) -f build-compose.yml up --abort-on-container-exit --exit-code-from builder builder
+	@VERSION=$(VERSION) docker-compose -p $(BUILD_TAG) -f build-compose.yml down -v || true
 
 docker-image:
 	@docker build -t $(IMAGE_NAME) .
@@ -91,3 +93,5 @@ docker-image-local: build-linux
 
 dep-update-titan:
 	@go get -u github.com/jucardi/go-titan
+	@go mod tidy
+	@go mod vendor
