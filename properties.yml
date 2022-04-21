@@ -1,0 +1,7 @@
+service_name: ms-sample
+context_path: service
+registry: registry.jucardi.io
+golang:
+  module_path: github.com/jucardi
+database: mongo # mongo, mysql, none
+port: 8080

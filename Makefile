@@ -2,12 +2,12 @@ GO_FMT       = gofmt -s -w -l .
 BUILD_TIME   = $(shell date -u +%FT%T)
 PKGROOT      = $(shell go list -e 2>/dev/null || true)
 COMMONS_ROOT = github.com/jucardi/go-titan
-SERVICE_NAME = sample-ms
-COMMAND_NAME = sample-ms
+SERVICE_NAME = {{.service_name}}
+COMMAND_NAME = {{.service_name}}
 
 VERSION     ?= $(shell date -u +%y.%m.%d.%H%M%S)
 IMAGE_TAG   ?= $(VERSION)
-IMAGE_NAME   = registry.url.here/$(SERVICE_NAME):$(IMAGE_TAG)
+IMAGE_NAME   = registry.jucardi.io/$(SERVICE_NAME):$(IMAGE_TAG)
 APIS         = $(wildcard api/*/.)
 BUILD_TAG   ?= $(SERVICE_NAME)
 

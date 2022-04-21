@@ -1,12 +1,12 @@
-app_name: ms-sample
+app_name: {{.service_name}}
 
 # rest: Contains the configuration for the REST Api
 rest:
   # http_port: Indicates the port where the API will be listening to
-  http_port: 8080
+  http_port: {{.port | default "8080"}}
 
   # context_path: Adds a context path to all registered routes
-  context_path: bml
+  context_path: {{.context_path}}
 
   response:
     mode: json
@@ -20,6 +20,7 @@ rest:
     # body: Indicates whether the HTTP request body should be dumped into the logger
     body: true
 
+{{- if and .database (not (eq .database "none"))}}
 # mongo: Contains the database configuration used by the service
 mongo:
   # host: Indicates the host where the database is located
@@ -27,7 +28,8 @@ mongo:
   # port: Indicates the port where the database service is listening to
   port: 27017
   # database: Indicates the database name
-  database: sample
+  database: {{.service_name}}
+{{- end }}
 
 service:
-  min_password_length: 20
+  some_service_specificy_config_field: "some value"

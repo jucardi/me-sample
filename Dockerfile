@@ -8,7 +8,7 @@ EXPOSE 8080
 
 
 COPY fixtures/* /fixtures/
-COPY bin/events-ms-linux /events-ms
+COPY bin/{{.service_name}}-linux /{{.service_name}}
 
-CMD ["/ms-sample"]
+CMD ["/{{.service_name}}"]
 

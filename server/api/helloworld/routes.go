@@ -4,7 +4,7 @@ import (
 	"github.com/jucardi/go-titan/net/errorx"
 	"github.com/jucardi/go-titan/net/rest"
 	"github.com/jucardi/go-titan/net/rest/router"
-	. "github.com/jucardi/ms-sample/api/helloworld"
+	. "{{.golang.module_path}}/{{.service_name}}/api/helloworld"
 	"strings"
 )
 

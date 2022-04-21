@@ -2,8 +2,8 @@ package message
 
 import (
 	"context"
-	"github.com/jucardi/ms-sample/api/helloworld"
-	"github.com/jucardi/ms-sample/server/repository/message"
+	"{{.golang.module_path}}/{{.service_name}}/api/helloworld"
+	"{{.golang.module_path}}/{{.service_name}}/server/repository/message"
 )
 
 var (

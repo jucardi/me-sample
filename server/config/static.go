@@ -7,7 +7,7 @@ import (
 
 const (
 	configKey  = "service"
-	configName = "sample-service-cfg"
+	configName = "{{.service_name}}-cfg"
 )
 
 var (

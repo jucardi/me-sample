@@ -3,8 +3,8 @@ package helloworld
 import (
 	"context"
 	"github.com/jucardi/go-titan/logx"
-	. "github.com/jucardi/ms-sample/api/helloworld"
-	"github.com/jucardi/ms-sample/server/service/message"
+	. "{{.golang.module_path}}/{{.service_name}}/api/helloworld"
+	"{{.golang.module_path}}/{{.service_name}}/server/service/message"
 )
 
 const (

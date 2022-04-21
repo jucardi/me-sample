@@ -1,13 +1,15 @@
-app_name: ms-sample
+app_name: {{.service_name}}
 
 rest:
-  http_port: 8080
-  context_path: bml
+  http_port: {{.port | default "8080"}}
+  context_path: {{.context_path}}
   reporting:
     min_status: 400
     body: true
 
+{{- if and .database (not (eq .database "none"))}}
 db:
   host: localhost
   port: 12006
-  database: sample
+  database: {{.service_name}}
+{{- end }}

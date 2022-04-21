@@ -6,7 +6,7 @@ import (
 	"github.com/jucardi/go-titan/configx"
 	"github.com/jucardi/go-titan/info"
 	"github.com/jucardi/go-titan/logx"
-	"github.com/jucardi/ms-sample/server"
+	"{{.golang.module_path}}/{{.service_name}}/server"
 	"github.com/spf13/cobra"
 )
 

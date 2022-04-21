@@ -4,7 +4,7 @@ import (
 	"github.com/jucardi/go-beans/beans"
 	"github.com/jucardi/go-strings/stringx"
 	"github.com/jucardi/go-titan/logx"
-	"github.com/jucardi/ms-sample/api/helloworld"
+	"{{.golang.module_path}}/{{.service_name}}/api/helloworld"
 )
 
 func init() {

@@ -1,5 +1,3 @@
-# gitignore for core-msauth
-
 # system files
 *.DS_Store*
 
@@ -13,5 +11,4 @@
 /tmp
 target
 test-artifacts
-/core-ms-config
 /local.yml

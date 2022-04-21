@@ -3,7 +3,7 @@ package api
 import (
 	"github.com/jucardi/go-titan/logx"
 	"github.com/jucardi/go-titan/net/rest/router"
-	"github.com/jucardi/ms-sample/server/api/helloworld"
+	"{{.golang.module_path}}/{{.service_name}}/server/api/helloworld"
 )
 
 func Start() {

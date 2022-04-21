@@ -8,8 +8,8 @@ import (
 	"github.com/jucardi/go-titan/configx"
 	"github.com/jucardi/go-titan/net/rest/router"
 	"github.com/jucardi/go-titan/utils/testutils"
-	"github.com/jucardi/ms-sample/api/helloworld"
-	"github.com/jucardi/ms-sample/server/repository"
+	"{{.golang.module_path}}/{{.service_name}}/api/helloworld"
+	"{{.golang.module_path}}/{{.service_name}}/server/repository"
 )
 
 func init() {

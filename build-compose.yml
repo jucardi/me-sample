@@ -3,8 +3,8 @@ version: '3.3'
 services:
   builder:
     image: jucardi/golang-protobuf:1.17
-    command: bash -c "cd /go/src/github.com/jucardi/ms-sample && make test build-linux"
+    command: bash -c "cd /go/src/{{.golang.module_path}}/{{.service_name}} && make test build-linux"
     volumes:
-      - ${PWD}:/go/src/github.com/jucardi/ms-sample
+      - ${PWD}:/go/src/{{.golang.module_path}}/{{.service_name}}
       - ${GOPATH}/pkg/mod:/go/pkg/mod
     tty: true

@@ -1,8 +1,8 @@
 package message
 
 import (
-	"github.com/jucardi/ms-sample/api/helloworld"
-	"github.com/jucardi/ms-sample/server/repository/message"
+	"{{.golang.module_path}}/{{.service_name}}/api/helloworld"
+	"{{.golang.module_path}}/{{.service_name}}/server/repository/message"
 )
 
 func toDbe(dto *helloworld.Message) *message.MessageDbe {

@@ -2,7 +2,7 @@ package message
 
 import (
 	"context"
-	"github.com/jucardi/ms-sample/api/helloworld"
+	"{{.golang.module_path}}/{{.service_name}}/api/helloworld"
 )
 
 // IService defines the contract for a clients service

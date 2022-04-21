@@ -3,8 +3,8 @@ package server
 import (
 	"github.com/jucardi/go-beans/beans"
 	"github.com/jucardi/go-titan/utils/shutdown"
-	"github.com/jucardi/ms-sample/server/api"
-	"github.com/jucardi/ms-sample/server/repository"
+	"{{.golang.module_path}}/{{.service_name}}/server/api"
+	"{{.golang.module_path}}/{{.service_name}}/server/repository"
 )
 
 func Run() {
